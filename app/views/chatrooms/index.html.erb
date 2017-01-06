@@ -1,0 +1,12 @@
+<h3>Salas de Chat</h3>
+
+<% @chatrooms.each  do |ch|  %>
+
+<!--<%= ch.topic%>-->
+
+<%= link_to ch.topic, chatroom_path(ch)%><br/>
+
+
+<% end %>
+
+<a href="<%= new_chatroom_path %>"><input type="submit" name="CreateChat" value="Crear Chatroom"></a>
