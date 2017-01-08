@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
-	message = Message.new(message_params)
+	
+  def create
+
+  message = Message.new(message_params)
     message.user = current_user
     if message.save
      
