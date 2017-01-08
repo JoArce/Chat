@@ -12,6 +12,7 @@ def show
 
  def index
  	 @chatrooms = Chatroom.all
+ 
 
      #Chatroom en mayuscula me toma todo el modelo 	 de Chatroom
  end
