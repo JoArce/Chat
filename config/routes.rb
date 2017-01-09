@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
+
+  get 'messages/create'
+
+  root :to => 'page#index'
+  
   get 'page/index'
 
   devise_for :users
-  mount ActionCable.server => '/cable'
 
   resources :chatrooms
   resources :messages
@@ -10,5 +15,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root :to => 'page#index'
+
+  mount ActionCable.server => '/cable'
+
 end
