@@ -1,19 +1,16 @@
 class MessagesChannel < ApplicationCable::Channel  
   def subscribed
-    stream_from 'messages'
+    puts "ps #{params.to_s}"
+    #stream_from 'messages'
+    stream_from "chatrooms_#{params['chatroom_id']}_channel"
+
   end
 
   def unsubscribed
   end
-
-  def speak(data)
-    message = Message.create! content: data['message']
-    ActionCable.server.broadcast 'messages', message: render_message(message)
+ 
+  def send_message(data)
+    current_user.messages.create!(body: data['message'], chatroom_id: data['chatroom_id'])
   end
 
-  private
-    def render_message(message)
-      ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
-    end
-  
 end  
