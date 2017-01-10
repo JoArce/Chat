@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   get 'page/index'
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations"}
 
   resources :chatrooms
   resources :messages
