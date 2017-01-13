@@ -7,7 +7,7 @@ jQuery(document).on 'turbolinks:load', ->
 
     App.global_chat = App.cable.subscriptions.create {
         channel: "MessagesChannel"
-        chatroom_id: 5
+        chatroom_id: messages.data('chatroom-id')
       },
       connected: ->
         # Called when the subscription is ready for use on the server

@@ -2,7 +2,7 @@ class MessagesChannel < ApplicationCable::Channel
   def subscribed
     puts "ps #{params.to_s}"
     #stream_from 'messages'
-    stream_from "chatrooms_#{params['chatroom_id']}_channel"
+    stream_from 'chatrooms_#{params['chatroom_id']}_channel'
 
   end
 
