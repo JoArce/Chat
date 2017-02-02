@@ -42,8 +42,11 @@ def create
       end
     end
   end
-
-
+  
+  def destroy
+  @chatroom = Chatroom.find(params[:id])
+  @chatroom.destroy
+  end
 
  private 
    def set_chatroom
